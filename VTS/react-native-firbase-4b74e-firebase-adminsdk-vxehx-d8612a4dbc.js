@@ -1,0 +1,12 @@
+export const serviceFile ={
+  "type": "service_account",
+  "project_id": "react-native-firbase-4b74e",
+  "private_key_id": "d8612a4dbc0f9f12a4dee884ae5112f779bc29de",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCIy2yWfs9k0bFD\nz6df7IuK6vWt8ZjyTtV8TKp8syajeUQ+mwvUpD4cohqHyZSbHUvW80wAyLd+b9jN\nKku3sW5ywvJTm4vVaDTEdoursF5WrERUuFdcczXV5QWditrJWq+6GhR6McOxHDHg\nMXKd4ToImWrE6boJBtWwyAzvO/41kTdpbYmpubFmkRhX001uhqAd7sVvsO2EChPV\nFb49k/g2oOl0lKqMkz+Pq1CczYerxyA7QFtjgz1yO61Q+2IfapXTQPTZ2KevmghA\nYJ3+meVdsLtUH5zfM/zc0wRDFD5bPHSfD+4UgUDuUltAOj8iBruFIUEMtqxano5v\nQs7MHA2pAgMBAAECggEAEMtYw4lCERClgLvHwsEZyK5cB0T4EBeZoi8PZ0vfXIaQ\n2FbUtwCLF5zXQQCAnCKWowcvt5Ds5jr5FQcyUJUaCEDi21znaAXpJI2hTCzVCDMS\nGIyhPRpv65i4fcUEY2Ac3u5AwVfGvMHHZczsU3HJXDDpqM9BJcaPCasl22E0LoM9\nokpmlg3SzfG88Q2CfN9f+J4ZvanFAiHzTXmxgbo4pLNFn9M9n4rW7A6QjOjZTcJI\nu2H5RedRlZ/s1y5RL94kxBaJVkn4ZJ+78OXxUAMLk9v1zFYd3WEo05FvgQ1TlrhI\nRF3PlJ3e0iV8zxOPVvevS39LwjI8LEZiFpASgPVNuQKBgQC/UIIo82QIdXZPlhzD\nH+XA0MLpWJAOlSY5LJNKhf4QKTJ4baxqnRGUPwR/m2JPqgXzYtQUEscgTA9G6KrX\nUwlcCx0sgpvf2K/gjSJiQTclrniwHbaEf+nX2Q4sKE3Q4HuzhNuk3BpHVJDP0qAu\nsF1lYu9XNd0Thx2eO92EtR3UCwKBgQC3C9+T3A59XB6zipdwE+YEBMDhH/024Ox2\nc+qGstJY2K5ydKYGMcxsq6orckLeMyXUJmp52EGyuQ56KZkjEaKOyiJ27S5w9cXt\n5njltTqsHrh34+E64MCf7sLmqUoAqejwjYG6/AfsbYVAtCkJbW3UiXROtykQcSvZ\nEk0CyW3hmwKBgQCsdaC/1ZhJX8nFOKa45towFIB/5YwG+UC5rYshVOSQIPMUSJly\niiC8qIoflizrb3Np0Z8ocTz7ylTDMR5AeOQpCwPDigGFqknxfIiQVgWmfD7jVAWi\nL8TXBR2XhMWRE6uvSobNeHRf9MWN8mrfa7DlomfrD+04m0aBy6mG5dX7vQKBgHWr\nilSw+Beaapock/GWuR0IOT3/pHXs7dXP+ooQ1qwKz0oAtuHwjWumh0RataXF16Gj\n+HrPjJxp3mal6y3iHlAQnUs6ecpgFJc0u69fa5JORWO8+IMzDGFDycMiPNJkZ7yM\nG0Oq1SUl2q2Xo3HOCPbCTiR0Fk/dkMSAwUTzXFHVAoGBAIYa8/mtkGprj4zYGm8o\nPYpkJ+ndjwH/PWpzJTrsXrVRLlxjtsabSj6lrNJf1aGevQn6hszxYlNIXWUlgc4Q\nxWz2/i4htY5MG0vFKYvJEXsPWumgvQT0FKxuS2r2f0ULpMeUGL0SvmqpYqxnPwev\nsJC5hP0U3Pa9Sd/VnQk7M6nS\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-vxehx@react-native-firbase-4b74e.iam.gserviceaccount.com",
+  "client_id": "116063379363671988250",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-vxehx%40react-native-firbase-4b74e.iam.gserviceaccount.com"
+}
