@@ -15,10 +15,9 @@ import { Button } from '../../component/button/index';
 import UserInput from '../../component/userInput/index';
 import AIcon from "react-native-vector-icons/AntDesign";
 // import ImagePicker from 'react-native-image-picker';
-// import auth, { firebase } from '@react-native-firebase/auth';
-// import storage from '@react-native-firebase/storage';
-// import firestore from '@react-native-firebase/firestore';
-
+import auth, { firebase } from '@react-native-firebase/auth';
+import storage from '@react-native-firebase/storage';
+import firestore from '@react-native-firebase/firestore';
 
 
 import LinearGradient from 'react-native-linear-gradient'
@@ -31,7 +30,32 @@ export default(props) => {
   const [Destination, setDestination] = useState("");
   const [Purpose, setPurpose] = useState("");
 
+  const requestSchool = () => {
+    if(SchoolName == ''){
+      alert('Please enter the School Name')
+    }
+    else if(Destination == ''){
+      alert('Please enter the Destination')
 
+    }
+    else {
+
+      firestore()
+        .collection('notifications')
+        .add({
+          Title: SchoolName,
+          Destination: Destination,
+          DriverId : auth().currentUser.uid,
+          Type : 'request'
+  
+        }).then((res) => {
+          alert("your Request has been Send. Thank You!")
+          setSchoolName(""); 
+          setDestination('');
+          props.navigation.pop();
+        })
+    }
+  }
   return (<KeyboardAvoidingView style={{ flex: 1 }} behavior={(Platform.OS === 'ios') ? "padding" : null}>
 
     <View style={{ flex: 1, top: Platform.OS == 'ios' ? IOS : 0, backgroundColor: Colors.white }}>
@@ -41,8 +65,9 @@ export default(props) => {
 
         <View style={{ height: hp(10)}}>
           <View style={{ height: hp(10), marginHorizontal: wp(5) }}>
+            <View style = {{height: hp(3)}}/>
             <Header
-              onPress={() => { props.navigation.pop(); setAvatarSource(''); setSchoolName(''); setDestination(''); setPurpose('');}}
+              onPress={() => { props.navigation.pop(); setSchoolName(''); setDestination('');}}
               color={Colors.white}
               iconColor={Colors.white}
               heading={'Request School'}
@@ -55,7 +80,7 @@ export default(props) => {
         </View>
 
         <View style={{ height: hp(6) }} />
-        <View style={{ height: hp(72), width: wp(100), alignItems: "center" }}>
+        <View style={{ height: hp(72), width: wp(100), alignItems: "center" , }}>
 
           {/* <TouchableOpacity onPress={() => openCamera()}
             style={{ height: wp(35), width: wp(35), borderRadius: wp(35) / 2, borderWidth: 5, borderColor: Colors.middleBlue, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
@@ -68,7 +93,7 @@ export default(props) => {
                 )
             }
           </TouchableOpacity> */}
-          <View style={{ height: hp(35), width: wp(100), backgroundColor: "white", padding: wp(3) }}>
+          <View style={{ height: hp(25), width: wp(100), backgroundColor: "white", padding: wp(3) }}>
 
             <View style={{ height: hp(8) }}>
               < UserInput onChangeText={(val) => { setSchoolName(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='School Name' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.school} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
@@ -78,9 +103,9 @@ export default(props) => {
               <UserInput onChangeText={(val) => { setDestination(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='Destination' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.location} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
             </View>
 
-            <View style={{ height: hp(8) }}>
+            {/* <View style={{ height: hp(8) }}>
               <UserInput onChangeText={(val) => { setPurpose(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='Purpose of Registration' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.code} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
-            </View>
+            </View> */}
             
           </View>
 
@@ -94,9 +119,9 @@ export default(props) => {
 
             <Button
               fontWeight={'bold'}
-              onPress={() => { AddChild() }}
+              onPress={() =>  {requestSchool()}}
               borderWidth={0.5}
-              backgroundColor={"#F8AA14"}
+              backgroundColor={Colors.primary}
               Icon={null} IconName={null}
               IconColor={Colors.facebookColor}
               width={wp('77%')} size={wp('5%')}
@@ -104,7 +129,7 @@ export default(props) => {
               borderRadius={wp('10%')}
               text={'Send Request'}
               textColor={Colors.white}
-              borderColor={"#F8AA14"}
+              borderColor={Colors.primary}
               fontSize={Size(1.8)} >
             </Button>
             )}

@@ -53,7 +53,7 @@ const Messages = (props) => {
                     <Tab.Screen name="Chats" component={Chats} />
                     <Tab.Screen name="Calls" component={Calls}/>
                     <Tab.Screen name="Camra" component={Camra}
-                        tabPress={() => { alert('hi') }}
+                        // tabPress={() => { alert('hi') }}
                         options={{
                             tabBarLabel: 'Notifications',
                         }}

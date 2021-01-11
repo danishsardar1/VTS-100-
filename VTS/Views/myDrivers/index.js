@@ -33,19 +33,19 @@ const myDrivers = (props) => {
     }, []);
 
     const ChildCode = () => {
-        setUserInfo([])
-        setChild([])
-        setStatus([])
-        setEmpty([])
-        setDocId([])
-        setChildName([])
+       
         // alert('useeffect working')
         setIsLoading(true)
         firestore()
             .collection('addToListDriver')
             .where("uid", "==", auth().currentUser.uid)
             .onSnapshot(i => {
-                
+                setUserInfo([])
+                setChild([])
+                setStatus([])
+                setEmpty([])
+                setDocId([])
+                setChildName([])
                 setChild('')
                 setEmpty(false)
                 setChildName([])
@@ -72,25 +72,25 @@ const myDrivers = (props) => {
                         }
                     })
                     userData(Childsss);
+                    console.log("Dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",Childsss)
                 },1000)
 
             })
 
     }
+
     const userData = (Childsss) => {
-
         console.log(Childsss)
-
+        setUserInfo([])
+        // setUserInfo([])
         let schoolcd = ''
         var doc = []
-
         console.log('Datachilds', Childsss)
         if(Childsss.length == 0){
             console.log("length is 0")
             setIsLoading(false)
         }
         else {
-
         Childsss.map((item,index) => {
             console.log(item)
             firestore()
@@ -103,12 +103,13 @@ const myDrivers = (props) => {
                     i.forEach(j => {
                         doc.push(j.id)
                         Data.push(j.data())
+                        // console.log("ggggggggggggggggggggggggggggggggggggggggggggg",j.data())
                     })
-    
                 })
                
             })
             setTimeout(() => {
+                // console.log("driver Dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", Data)
                 setDocId([])
                 setDocId(doc)
                 setUserInfo(Data)

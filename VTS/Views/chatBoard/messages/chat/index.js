@@ -160,7 +160,7 @@ Linking.canOpenURL(url).then(supported => {
                         renderItem={({ item, index }) => {
 
                         return<View style = {{}}>
-                                <TouchableOpacity onPress = {() => {nativeSms(item.MobNo)}} style = {{flex  :1,flexDirection: 'row', marginVertical : hp(2),  borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal : wp(3)}}>
+                                <TouchableOpacity onPress = {() => {nativeSms(item.MobNo)}} style = {{height: hp(8) ,flexDirection: 'row', alignItems: 'center',  borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal : wp(3)}}>
                             <View style = {{flex : .2, alignItems: 'center', justifyContent : 'center'}}>
                                 <Image source = {{uri: item.imageUrl}} style = {{height: hp(4), width: hp(4), borderRadius: hp(4/2), marginHorizontal: wp(2)}}/>
                                 

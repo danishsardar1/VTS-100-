@@ -120,7 +120,9 @@ const Chats = () => {
             .where('uid', '==', data)
             .where('SchoolCode','==',SchoolCodes)
             .onSnapshot( i => {
-                
+                Data = []
+                setUserInfo([])
+                setIsLoading(true)
                 let docId = ''
                 i.forEach(j => {
                     // Data = j.data();
@@ -189,7 +191,7 @@ const Chats = () => {
                     </View>
                     <View style={{ flex: .1, marginHorizontal: wp(5), alignSelf: 'flex-end' }}>
 
-                      <FEIcon name={item.status} size={16} color={item.status == 'arrow-down-left' ? ('red') : ('green')} />
+                      {/* <FEIcon name={item.status} size={16} color={item.status == 'arrow-down-left' ? ('red') : ('green')} /> */}
                     </View>
                   </TouchableOpacity>
                 }}

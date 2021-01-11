@@ -66,22 +66,26 @@ const SignUp = (props) => {
     setTimeout(() => {
 
         items = []
-        
-        arr = school.map(
-            (data) => ({
+        let arr = []
+        school.map(
+            (data,index) => (
+             
+             
+           arr[index] =   {
                 label: data.Name,
                 value: data.SchoolCode,
-            })
+            }
+            )
             // setIsLoading(false)
         );
         console.log("newArray", arr)
         setItems(arr)
-         arr2 = arr.map(
-            async (data) => {
-                await items.push(data)
-            }
+        //  arr2 = arr.map(
+        //     async (data) => {
+        //         await items.push(data)
+        //     }
 
-        );
+        // );
         
         //    setItems(arr)
         setIsLoading(false)
@@ -373,11 +377,11 @@ const SignUp = (props) => {
 
 
                 <View style={{ height: hp(5) }}>
-                  <UserInput onChangeText={(val) => { setCnic(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='CNIC No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
+                  <UserInput onChangeText={(val) => { setCnic(val) }} keyboardType='numeric' textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='CNIC No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
                 </View>
                 <View style={{ height: hp(2.8) }} />
                 <View style={{ height: hp(5) }}>
-                  <UserInput onChangeText={(val) => { setMobNo(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='Mob No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.mob} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
+                  <UserInput onChangeText={(val) => { setMobNo(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} keyboardType='numeric' placeholder='Mob No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.mob} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
                 </View>
                 <View style={{ height: hp(2.8) }} />
                 <View style={{ height: hp(5) }}>
@@ -385,7 +389,7 @@ const SignUp = (props) => {
                 </View>
                 <View style={{ height: hp(2.8) }} />
                 <View style={{ height: hp(5) }}>
-                  <UserInput onChangeText={(val) => { setLicenseNo(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='License No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
+                  <UserInput onChangeText={(val) => { setLicenseNo(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} keyboardType='numeric' placeholder='License No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
                 </View>
                 <View style={{ height: hp(2.8) }} />
                 <View style={{ height: hp(5) }}>
@@ -394,8 +398,10 @@ const SignUp = (props) => {
                     searchable={true}
                     searchablePlaceholder="Search for the School"
                     items={items}
+                    placeholder={'Select a School'}
                     controller={instance => controller = instance}
                     containerStyle={{ height: 40 }}
+                    dropDownMaxHeight={hp(27)}
                     itemStyle={{
                       justifyContent: 'flex-start'
                     }}

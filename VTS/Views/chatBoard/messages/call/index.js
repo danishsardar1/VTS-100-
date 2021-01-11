@@ -146,7 +146,7 @@ const Calls = () => {
                 // getItemLayout={(item,index)=>alert(index)}
                 renderItem={({ item, index }) => {
 
-                return <TouchableOpacity onPress = {()=> {Call(item.MobNo)}} style = {{flex  :1,flexDirection: 'row', marginVertical : hp(2),  borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal : wp(3)}}>
+                return <TouchableOpacity onPress = {()=> {Call(item.MobNo)}} style = {{height: hp(8) ,flexDirection: 'row', alignItems: 'center', borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal : wp(3)}}>
                     <View style = {{flex : .2, alignItems: 'center', justifyContent : 'center'}}>
                         <Image source = {{uri: item.imageUrl}} style = {{height: hp(4), width: hp(4), borderRadius: hp(4/2), marginHorizontal: wp(2)}}/>
                       

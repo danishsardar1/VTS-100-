@@ -13,7 +13,7 @@ import { set } from 'react-native-reanimated';
 
 const types = ['ICG F-6/2', 'IMCG G-6/3', 'Model College', 'FG College']
 const tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const Travellers = (props) => {
+const Attendance = (props) => {
     const [ChildName, setChildName] = useState("")
     const [SchoolCode, setSchoolCode] = useState("")
     const [imageUrl, setimageUrl] = useState("")
@@ -64,32 +64,23 @@ const Travellers = (props) => {
                     </Header>
                 </View>
 
-                <View style={{ height: hp(85), paddingTop: hp(2), backgroundColor: '#fff', borderTopLeftRadius: wp(5), borderTopRightRadius: wp(5), elevation: 10, paddingHorizontal: wp(3) }}>
+                <View style={{ height: hp(85), backgroundColor: '#fff', borderTopLeftRadius: wp(5), borderTopRightRadius: wp(5), elevation: 10, paddingHorizontal: wp(7) }}>
                     <ScrollView>
-                        {UserInfo.map(item => {
-                            return <TouchableOpacity style={{ height: hp(9), marginVertical: hp(1.3), width: '100%' }}>
-                                <View style={{ flex: 1, flexDirection: 'row' }}>
-                                    <View style={{ flex: .25 }}>
-                                        <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' }}>
-                                            <View style={{ borderRadius: wp(19) / 2, borderWidth: 3, borderColor: 'white', elevation: 14, backgroundColor: Colors.white }}>
-                                                <Image source={{ uri : typeof item.imageUrl == 'string' ? item.imageUrl : null}} style={{ height: wp(17.5), width: wp(17.5), borderRadius: wp(17.5) / 2, borderColor: 'white' }}></Image>
-                                            </View>
-                                        </View>
-                                    </View>
+                        <View style={{height : hp(3)}} />
+                        {UserInfo.map((item,index) => {
+                         return   item.status && (item.status == 1 || item.status == 2) ?
+                             <TouchableOpacity style={{ height: hp(5), marginTop : index == 0 ? hp(3) : hp(2.5), width: '100%' }}>
+                                <View style={{ flexDirection: 'row', justifyContent : 'space-between' }}>
 
-                                    <View style={{ flex: .75, marginHorizontal: wp(2), justifyContent: 'center', }}>
+                                    <View style={{marginHorizontal: wp(2), justifyContent: 'center', }}>
                                         <Text style={{ fontSize: Size(2) }}>{item.ChildName}</Text>
                                         <Text style={{ fontSize: Size(1.2), color: Colors.primary }}>{item.SchoolName}</Text>
-                                        {/* <Text style={{ fontSize: Size(1.2), color: Colors.gray }}>New van and reasonable charges</Text> */}
-                                        <View style={{ flexDirection: 'row' }}>
-
-                                            {/* {types.map(i => {
-                                                return <Text style={{ fontSize: Size(0.9), color: Colors.white, backgroundColor: 'rgba(0,0,0,0.25)', paddingHorizontal: wp(2), marginHorizontal: wp(.5), marginTop: hp(.5), borderRadius: wp(2) }}>{i}</Text>
-                                            })} */}
-                                        </View>
                                     </View>
+                                    <Text style={{ fontSize: Size(1.7), color: Colors.primary, textAlignVertical : 'center' }}>{item.status == 1 ? "Present" : "Absent"}</Text>
                                 </View>
                             </TouchableOpacity>
+                            :
+                            null
                         })}
                         <View style = {{height: hp(15)}}/>
                     </ScrollView>
@@ -100,4 +91,4 @@ const Travellers = (props) => {
     </KeyboardAvoidingView>);
 }
 
-export { Travellers };
+export { Attendance };

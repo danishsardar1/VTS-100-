@@ -23,6 +23,7 @@ import RequestSchool from '../schoolRequest/index'
 import Map from '../map/index'
 import {myDrivers} from '../myDrivers/index'
 import {Report} from '../report/index'
+import {Attendance} from '../attendance/attendance'
 
 
 
@@ -35,6 +36,7 @@ function SearchStack() {
               headerMode='none'
         >
           <Stack3.Screen name="search" component={Search} />
+          <Stack3.Screen name="Attendance" component={Attendance} />
           <Stack3.Screen name="profile" component={ProfileDetail} />
           <Stack.Screen name = "Location" component = {Map} />
           <Stack5.Screen name = "myDriver" component = {myDrivers}/>

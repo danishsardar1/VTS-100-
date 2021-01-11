@@ -16,6 +16,8 @@ import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Icon from 'react-native-vector-icons/Feather';
+import { Button } from '../../component/button/index';
+
 
 
 
@@ -136,7 +138,8 @@ const Search = (props) => {
                                     searchablePlaceholder="Search for the School"
                                     items={items}
                                     controller={instance => controller = instance}
-                                    // dropDownMaxHeight = {200}
+                                    dropDownMaxHeight = {313}
+                                    placeholder = 'Select a School'
                                     containerStyle={{ height: 40 }}
                                     itemStyle={{
                                         justifyContent: 'flex-start'
@@ -185,11 +188,28 @@ const Search = (props) => {
                                     <ActivityIndicator size={25} color={'black'} />
 
                                 )}
-                            <View style={{ height: 60 }} />
+                            <View style={{ height: 150 }} />
                         </View>
                     </View>
                 </View>
                 {/* )} */}
+            </View>
+            <View style={{ height: hp(7), width: wp(80),position : 'absolute', marginTop : hp(80), alignSelf : 'center', alignItems : 'center' }}>
+                            <Button
+              fontWeight={'bold'}
+              onPress={() =>  {props.navigation.navigate('Attendance')}}
+              borderWidth={0.5}
+              backgroundColor={"#F8AA14"}
+              Icon={null} IconName={null}
+              IconColor={Colors.facebookColor}
+              width={wp('50%')} size={wp('5%')}
+              IconLeftMargin={wp('3%')}
+              borderRadius={wp('10%')}
+              text={'View Attendance'}
+              textColor={Colors.white}
+              borderColor={"#F8AA14"}
+              fontSize={Size(1.8)} >
+            </Button>
             </View>
         </KeyboardAvoidingView>
         );

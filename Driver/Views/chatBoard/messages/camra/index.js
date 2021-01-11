@@ -82,7 +82,7 @@ const Camra = () => {
         })
         setTimeout(() => {
             
-            alert(requestArray)
+            // alert(requestArray)
             requestArray.map((item,index) => {
                 responsesArray.map((datasss,i) => {
                 if (item == true && datasss == true ) {
@@ -152,53 +152,56 @@ const Camra = () => {
                     // getItemLayout={(item,index)=>alert(index)}
                     renderItem={({ item, index }) => {
 
-                        return <View style={{ flex: 1, flexDirection: 'row', marginVertical: hp(2), borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal: wp(3) }}>
+                        return <View style={{ flex: 1, flexDirection: 'row', marginVertical: hp(2), borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal: wp(5) }}>
                             <View style={{ flex: .2, alignItems: 'center', justifyContent: 'center' }}>
                                 <Image source={{ uri: item.imageUrl }} style={{ height: hp(10), width: hp(10), borderRadius: hp(10 / 2), marginHorizontal: wp(2) }} />
 
                             </View>
-                            <View style={{ flex: 1, alignItems: 'flex-start',justifyContent: 'center', marginHorizontal: wp(4), }}>
+                            <View style={{ flex: 1,justifyContent: 'center', marginLeft : wp(6), }}>
                                 <Text style={{ fontSize: Size(2.1) }}>{item.name}</Text>
                                 {
                                     item.request == false && item.response == false ? (
                                         <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>{item.name} send you request</Text>
                                     ):(
+                                        (item.request == true && item.response == false) || (item.request == false && item.response == true) ?
+                                        <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>you rejected the request of {item.name}</Text>
+                                        :
                                         <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>you have accepted the request of {item.name}</Text>
-
                                     )
                                 }
                                 {
                                     item.request == false && item.response == false ?(
 
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginVertical: wp(3), height: hp(5) }}>
-                                    <Button
-                                        fontWeight={'bold'}
-                                        onPress={() => {requestResponseFalse()}}
-                                        borderWidth={0.5}
-                                        backgroundColor={"#F8AA14"}
-                                        Icon={null} IconName={null}
-                                        IconColor={Colors.facebookColor}
-                                        width={wp('20%')} size={wp('5%')}
-                                        IconLeftMargin={wp('3%')}
-                                        borderRadius={wp('10%')}
-                                        text={'reject'}
-                                        textColor={Colors.white}
-                                        borderColor={"#F8AA14"}
-                                        fontSize={Size(1.8)} >
-                                    </Button>
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: wp(3), height: hp(5) , width : wp(65) }}>
                                     <Button
                                         fontWeight={'bold'}
                                         onPress={() => {requestResponse()}}
                                         borderWidth={0.5}
-                                        backgroundColor={"#F8AA14"}
+                                        backgroundColor={Colors.primary}
                                         Icon={null} IconName={null}
                                         IconColor={Colors.facebookColor}
-                                        width={wp('20%')} size={wp('5%')}
+                                        width={wp(10)} size={wp('5%')}
                                         IconLeftMargin={wp('3%')}
                                         borderRadius={wp('10%')}
                                         text={'Accept'}
                                         textColor={Colors.white}
-                                        borderColor={"#F8AA14"}
+                                        borderColor={Colors.primary}
+                                        fontSize={Size(1.8)} >
+                                    </Button>
+                                    <Button
+                                        fontWeight={'bold'}
+                                        onPress={() => {requestResponseFalse()}}
+                                        borderWidth={0.5}
+                                        backgroundColor={Colors.primary}
+                                        Icon={null} IconName={null}
+                                        IconColor={Colors.facebookColor}
+                                        width={wp(10)} size={wp('5%')}
+                                        IconLeftMargin={wp('3%')}
+                                        borderRadius={wp('10%')}
+                                        text={'Reject'}
+                                        textColor={Colors.white}
+                                        borderColor={Colors.primary}
+                                        marginLeft={wp(5)}
                                         fontSize={Size(1.8)} >
                                     </Button>
                                 </View>

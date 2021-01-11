@@ -105,7 +105,7 @@ const Profile = (props) => {
                     <ActivityIndicator size={25} color={'black'} />
                 </View>
             ) : (
-                    <ScrollView>
+                    // <ScrollView>
                         <View style={{ flex: 1, alignItems: "center", backgroundColor: "#F1F1F1" }}>
                             <View style={{ height: hp(2) }} />
                             <View style={{ height: hp(19), width: hp(20), borderRadius: hp(20 / 2), backgroundColor: Colors.white, justifyContent: "center", alignItems: "center", elevation: 10, }}>
@@ -119,7 +119,7 @@ const Profile = (props) => {
                                 <TextInput onChangeText={(val) => { setName(val) }} style={{ fontSize: Size(2.5), fontWeight: "bold", color: "black" }} editable={Edit == true ? true : false} value={name} />
                             </View>
 
-                            <View style={{ height: hp(70), width: wp(100), borderBottomRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: "white", marginTop: hp(8), elevation: 25, }}>
+                            <View style={{ height: hp(50), width: wp(100), borderBottomRightRadius: 15, borderBottomLeftRadius: 15, backgroundColor: "white", marginTop: hp(8), elevation: 25, }}>
                                 <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: 'center', borderBottomWidth: 1, borderBottomColor: "#00000029", paddingHorizontal: wp(4), paddingVertical: hp(1.5) }}>
                                     <View style={{ flexDirection: "row", alignItems: "center", }}>
                                         <Image source={Images.email} style={{ height: hp(4), width: wp(4) }} resizeMode="contain" />
@@ -135,7 +135,7 @@ const Profile = (props) => {
                                     <View style={{ flexDirection: "row", alignItems: "center", }}>
                                         <Image source={Images.card} style={{ height: hp(4), width: wp(4) }} resizeMode="contain" />
                                         <Text style={{ marginLeft: wp(2) }}>CNIC:</Text>
-                                        <TextInput onChangeText={(val) => { setCnic(val) }} style={{ fontSize: Size(1.8), color: 'black', marginLeft: wp(3) }} editable={Edit == true ? true : false} value={Cnic} />
+                                        <TextInput onChangeText={(val) => { setCnic(val) }} maxLength={13}  keyboardType='numeric' style={{ fontSize: Size(1.8), color: 'black', marginLeft: wp(3) }} editable={Edit == true ? true : false} value={Cnic} />
 
                                     </View>
                                     <View>
@@ -147,7 +147,7 @@ const Profile = (props) => {
                                     <View style={{ flexDirection: "row", alignItems: "center", }}>
                                         <Image source={Images.mob} style={{ height: hp(4), width: wp(4) }} resizeMode="contain" />
                                         <Text style={{ marginLeft: wp(2) }}>Mobile:</Text>
-                                        <TextInput onChangeText={(val) => { setMobNo(val) }} style={{ fontSize: Size(1.8), color: 'black', marginLeft: wp(3) }} editable={Edit == true ? true : false} value={MobNo} />
+                                        <TextInput onChangeText={(val) => { setMobNo(val) }} maxLength={11} keyboardType='numeric' style={{ fontSize: Size(1.8), color: 'black', marginLeft: wp(3) }} editable={Edit == true ? true : false} value={MobNo} />
 
                                     </View>
                                     <View>
@@ -155,8 +155,10 @@ const Profile = (props) => {
                                     </View>
                                 </View>
                                
-                                <View style={{ height: hp(2) }} />
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                                {/* <View style={{ height: hp(2) }} /> */}
+                                <View style = {{justifyContent: 'center', height: hp(20), alignItems: 'center',}}>
+
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     {
                                         Edit == false ?
                                     <View style={{ height: hp(5) }}>
@@ -194,6 +196,7 @@ const Profile = (props) => {
                                                     IconLeftMargin={wp('3%')}
                                                     borderRadius={wp('10%')}
                                                     text={'Edit'}
+                                                    marginLeft={wp(5)}
                                                     textColor={Colors.white}
                                                     borderColor={"#F8AA14"}
                                                     fontSize={Size(1.8)} >
@@ -259,6 +262,7 @@ const Profile = (props) => {
                                             text={'Logout'}
                                             textColor={Colors.white}
                                             borderColor={"#F8AA14"}
+                                            marginLeft={wp(5)}
                                             fontSize={Size(1.8)} >
                                         </Button>
                                     :
@@ -267,14 +271,13 @@ const Profile = (props) => {
 
                                     </View>
                                 </View>
-
+                                </View>
 
                             </View>
 
-
                         </View>
-                        <View style={{ height: 20 }} ></View>
-                    </ScrollView>
+                        // <View style={{ height: 20 }} ></View>
+                    // </ScrollView>
                 )}
         </View>
         {/* </ScrollView> */}

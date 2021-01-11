@@ -55,6 +55,7 @@ export default class UserInput extends Component {
               autoCorrect={this.props.autoCorrect}
               autoCapitalize={this.props.autoCapitalize}
               returnKeyType={this.props.returnKeyType}
+              keyboardType={this.props.keyboardType}
               placeholderTextColor={this.props.placeholderTextColor}
               underlineColorAndroid="transparent"
               onChangeText={this.props.onChangeText}

@@ -15,8 +15,8 @@ const Button = props => {
             flex : 1,
             borderRadius : props.borderRadius,
             borderColor : props.borderColor,
-            borderWidth : props.borderWidth
-       
+            borderWidth : props.borderWidth,
+            marginLeft : props.marginLeft
         }
       }
     >

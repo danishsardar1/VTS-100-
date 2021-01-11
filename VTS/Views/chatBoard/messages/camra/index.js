@@ -138,18 +138,18 @@ const Camra = () => {
                     // getItemLayout={(item,index)=>alert(index)}
                     renderItem={({ item, index }) => {
                         // alert(item.request)
-                        return <View style={{ flex: 1,paddingHorizontal : wp(2), flexDirection: 'row', marginVertical: hp(2), borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal: wp(3) }}>
+                        return <View style={{ height: hp(12),paddingHorizontal : wp(2), flexDirection: 'row', borderBottomWidth: 0.2, borderBottomColor: Colors.lightGray, marginHorizontal: wp(3) }}>
                             <View style={{ flex: .2, alignItems: 'center', justifyContent: 'center' }}>
                                 <Image source={{ uri: item.imageUrl }} style={{ height: hp(10), width: hp(10), borderRadius: hp(10 / 2), marginHorizontal: wp(2) }} />
 
                             </View>
-                            <View style={{ flex: 1, alignItems: 'flex-start',justifyContent: 'center', marginHorizontal: wp(4), }}>
-                                <Text style={{ fontSize: Size(2.1) }}>{item.name}</Text>
+                            <View style={{ flex: 1,justifyContent: 'center', marginHorizontal: wp(4), }}>
+                                <Text style={{ fontSize: Size(2.1), paddingHorizontal: wp(2) }}>{item.name}</Text>
                                 {
                                     item.request == false ? (
-                                        <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>Your request has been sent to {item.name}</Text>
+                                        <Text style={{ fontSize: Size(1.3),paddingHorizontal: wp(2), opacity: 0.5 }}>Your request has been sent to {item.name}</Text>
                                     ):(
-                                        <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>Your request has been accepted by {item.name}</Text>
+                                        <Text style={{ fontSize: Size(1.3), paddingHorizontal: wp(2), opacity: 0.5 }}>Your request has been accepted by {item.name}</Text>
 
                                     )
                                 }
@@ -191,7 +191,7 @@ const Camra = () => {
                                     ):(null)
                                 } */}
                             </View>
-
+                                {/* <View style = {{height: 5}}/> */}
                         </View>
                     }}
                 />

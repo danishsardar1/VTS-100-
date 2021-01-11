@@ -20,8 +20,10 @@ import {AddTrips} from '../profile/myTrip/addTrip/index';
 import {MyTripList} from '../profile/myTrip/myTripList/index';
 import {Setting} from '../profile/setting/index';
 import {Messages} from '../chatBoard/messages/index';
-import RequestSchool from '../schoolRequest/index'
+import RequestSchool from '../RequestSchool/index'
 import Map from '../Location/index';
+import {MyStudents} from '../MyStudents/index'
+// import { RequestSchool } from "../RequestSchool";
 
 
 
@@ -35,6 +37,7 @@ function SearchStack() {
               headerMode='none'
         >
           <Stack3.Screen name="search" component={Search} />
+          <Stack3.Screen name="MyStudents" component={MyStudents} />
           <Stack3.Screen name="profile" component={ProfileDetail} />
           <Stack3.Screen name = "Map" component = {Map}/>
 

@@ -108,8 +108,8 @@ const Report = (props) => {
                     </Text>
                 </View> */}
                 <View style = {{height: hp(2)}}/>
-                <View style = {{height: hp(20), borderWidth: 1, }}>
-                    <TextInput multiline = {true} onChangeText={(val) => { setDescription(val) }} style placeholder = "Description"/>
+                <View style = {{height: hp(20), borderWidth: 1, borderRadius: 10, paddingHorizontal: wp(5) }}>
+                    <TextInput multiline = {true} maxLength = {120} onChangeText={(val) => { setDescription(val) }} style placeholder = "Description"/>
                 </View>
               {/* <UserInput onChangeText={(val) => { setDestination(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='Destination' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.location} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput> */}
             </View>

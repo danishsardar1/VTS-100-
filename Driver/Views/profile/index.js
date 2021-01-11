@@ -211,7 +211,7 @@ const Profile = (props) => {
                                 } */}
 
                                 <View style={{ height: hp(7) }} />
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                                <View style={{ flexDirection: 'row', justifyContent: Edit == false ? 'space-around' : 'center' }}>
                                     <View style={{ height: hp(5) }}>
                                         {
                                             Edit == false ?
@@ -219,15 +219,16 @@ const Profile = (props) => {
                                                     fontWeight={'bold'}
                                                     onPress={() => { enableEdit() }}
                                                     borderWidth={0.5}
-                                                    backgroundColor={"#F8AA14"}
+                                                    backgroundColor={Colors.primary}
                                                     Icon={null} IconName={null}
                                                     IconColor={Colors.facebookColor}
                                                     width={wp('40%')} size={wp('5%')}
                                                     IconLeftMargin={wp('3%')}
                                                     borderRadius={wp('10%')}
                                                     text={'Edit'}
+                                                    borderColor={Colors.primary}
                                                     textColor={Colors.white}
-                                                    borderColor={"#F8AA14"}
+
                                                     fontSize={Size(1.8)} >
                                                 </Button>
                                                 :
@@ -235,7 +236,7 @@ const Profile = (props) => {
                                                     fontWeight={'bold'}
                                                     onPress={() => { updateInfo() }}
                                                     borderWidth={0.5}
-                                                    backgroundColor={"#F8AA14"}
+                                                    backgroundColor={Colors.primary}
                                                     Icon={null} IconName={null}
                                                     IconColor={Colors.facebookColor}
                                                     width={wp('40%')} size={wp('5%')}
@@ -243,7 +244,7 @@ const Profile = (props) => {
                                                     borderRadius={wp('10%')}
                                                     text={'Save'}
                                                     textColor={Colors.white}
-                                                    borderColor={"#F8AA14"}
+                                                    borderColor={Colors.primary}
                                                     fontSize={Size(1.8)} >
                                                 </Button>
                                         }
@@ -256,7 +257,7 @@ const Profile = (props) => {
                                                     fontWeight={'bold'}
                                                     onPress={() => { AsyncStorage.removeItem('UUID'); props.navigation.replace('login') }}
                                                     borderWidth={0.5}
-                                                    backgroundColor={"#F8AA14"}
+                                                    backgroundColor={Colors.primary}
                                                     Icon={null} IconName={null}
                                                     IconColor={Colors.facebookColor}
                                                     width={wp('40%')} size={wp('5%')}
@@ -264,7 +265,7 @@ const Profile = (props) => {
                                                     borderRadius={wp('10%')}
                                                     text={'Logout'}
                                                     textColor={Colors.white}
-                                                    borderColor={"#F8AA14"}
+                                                    borderColor={Colors.primary}
                                                     fontSize={Size(1.8)} >
                                                 </Button>
                                                 :

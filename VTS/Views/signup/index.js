@@ -276,7 +276,7 @@ const SignUp = (props) => {
                   <View style={{ height: hp(2.8) }} />
 
                   <View style={{ height: hp(5) }}>
-                    <UserInput onChangeText={(val) => { setCnic(val) }} keyboardType = {'phone-pad'} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='CNIC No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
+                    <UserInput onChangeText={(val) => { setCnic(val) }} maxLength={13} keyboardType = {'phone-pad'} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='CNIC No.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.card} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput>
                   </View>
                   <View style={{ height: hp(2.8) }} />
                   <View style={{ height: hp(5) }}>

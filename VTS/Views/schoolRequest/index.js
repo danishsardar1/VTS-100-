@@ -65,6 +65,7 @@ export default(props) => {
 
         <View style={{ height: hp(10)}}>
           <View style={{ height: hp(10), marginHorizontal: wp(5) }}>
+            <View style = {{height: hp(3)}}/>
             <Header
               onPress={() => { props.navigation.pop(); setSchoolName(''); setDestination('');}}
               color={Colors.white}
@@ -79,7 +80,7 @@ export default(props) => {
         </View>
 
         <View style={{ height: hp(6) }} />
-        <View style={{ height: hp(72), width: wp(100), alignItems: "center" }}>
+        <View style={{ height: hp(72), width: wp(100), alignItems: "center" , }}>
 
           {/* <TouchableOpacity onPress={() => openCamera()}
             style={{ height: wp(35), width: wp(35), borderRadius: wp(35) / 2, borderWidth: 5, borderColor: Colors.middleBlue, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>

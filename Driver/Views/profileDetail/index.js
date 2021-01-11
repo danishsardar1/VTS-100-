@@ -6,6 +6,7 @@ import MCIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EIcon from "react-native-vector-icons/Entypo";
 import FIcon from "react-native-vector-icons/Fontisto";
 import FEIcon from "react-native-vector-icons/Feather";
+import LeftArrow from "react-native-vector-icons/FontAwesome5";
 import FoundationIcon from "react-native-vector-icons/Foundation";
 import OIcon from "react-native-vector-icons/Octicons";
 import UserInput from '../../component/userInput/index';
@@ -48,6 +49,7 @@ useEffect( () => {
         <View style={{ top: Platform.OS == 'ios' ? IOS : 0, backgroundColor: Colors.white }}>
            
             <View style = {{height:hp(32),width:wp(100),position:"absolute"}}>
+            
             <Swiper activeDot={<View style={{backgroundColor: '#fff',borderWidth : 1.3, borderColor : Colors.primary, width: 12, height: 12, borderRadius: 12/2, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,justifyContent : 'center', alignItems : 'center'}} >
                         <View  style={{backgroundColor: Colors.primary, width: 6, height: 6, borderRadius : 6/2}}></View>
                     </View>} 
@@ -131,13 +133,16 @@ useEffect( () => {
                     </View>
                     <View style={{height : hp(5)}}></View>
                     <LinearGradient start={{x : 0 , y : 0}} end={{x : 1,y : 1}}  colors={Colors.linearGradient1} style={{width : wp('90%'),justifyContent : 'center', alignSelf : 'center', alignItems : 'center',height : hp(6), borderRadius : wp('10%')}}>
-                <Text style={{color : '#fff'}}>{'Send Request'}</Text>
+                <Text style={{color : '#fff'}}>{'Remove Student'}</Text>
                     </LinearGradient>  
                     <View style={{height : hp(4)}}></View>
 
                 </View>               
         </View>
         </ScrollView>
+        <TouchableOpacity onPress =  {() => props.navigation.pop()} style = {{margin: hp(2), position: 'absolute', height: 37, width: 37, borderRadius: 37/2, justifyContent: 'center', alignItems: 'center', backgroundColor: '#ffffff'}}>
+                    <LeftArrow name="arrow-left" size={30} color= {Colors.primary} />
+                </TouchableOpacity>
     </KeyboardAvoidingView>
     );
 }

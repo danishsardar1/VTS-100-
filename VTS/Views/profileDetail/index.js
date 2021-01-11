@@ -92,12 +92,12 @@ const ProfileDetail = (props) => {
                             request: false,
                             response: false
                         })
-                    alert("driver has been added to your list")
+                    alert("Request has been sent successfully")
                     Notification()
                 }
                 else {
                     Notification()
-                    alert('driver is already added')
+                    alert('Request has already been sent')
                 }
             })
         // console.log(data)
@@ -167,7 +167,7 @@ const ProfileDetail = (props) => {
                                 <Text style={{ fontSize: Size(3), fontWeight: 'bold', color: 'rgba(0,0,0,0.7)' }}>{userData.name}</Text>
                             </View>
                         </View>
-                        <TouchableOpacity onPress = {() => props.navigation.navigate('Report', {uid: userData.uid})}>
+                        <TouchableOpacity style = {{borderWidth: 1, borderRadius:5,  height: hp(3), width: wp(13), justifyContent: 'center', alignItems: 'center' }} onPress = {() => props.navigation.navigate('Report', {uid: userData.uid})}>
                            <Text>
                                 Report
                            </Text>

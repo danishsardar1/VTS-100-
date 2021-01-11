@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, KeyboardAvoidingView, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { hp, wp, Size, Colors, Images } from '../../../../assets/index';
 import MIcon from "react-native-vector-icons/MaterialIcons";
@@ -12,13 +12,94 @@ import OIcon from "react-native-vector-icons/Octicons";
 import { Header } from '../../../../component/header/index';
 import { Button } from '../../../../component/button/index';
 import FontistoIcon from "react-native-vector-icons/Fontisto";
-
+import DropDownPicker from 'react-native-dropdown-picker';
 import LinearGradient from 'react-native-linear-gradient'
+import auth, { firebase } from '@react-native-firebase/auth';
+import storage from '@react-native-firebase/storage';
+import firestore from '@react-native-firebase/firestore';
 
 const types = ['beech break', 'foodie tour', 'side seeing', 'shopping trip']
 const tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
+let doc = ''
 const MyTripList = (props) => {
+    var [items, setItems] = useState([]);
+    const [school, setSchool] = useState([])
+    const [value, setValue] = useState(null);
+    const [labelValue, setLabelValue] = useState('')
+    const [isLoading, setIsLoading] = useState(false);
+
+  let controller;
+
+    useEffect(() => {
+        getSchool()
+            firestore()
+            .collection('Driver')
+            .where('uid', '==' , auth().currentUser.uid)
+            .onSnapshot(i => {
+                doc = ''
+                i.forEach( j => {
+                    doc = j.id
+                })
+            })
+      }, []);
+      const getSchool = () => {
+        setIsLoading(true)
+        setItems([])
+        firestore()
+            .collection('Schools')
+            .onSnapshot(async i => {
+                setSchool([])
+                i.forEach(j => {
+                    school.push(j.data())
+                })
+                console.log("SSSHelloo", school)
+    
+            })
+        console.log("school2222222222222222222222222222222222222222222", school)
+    
+        setTimeout(() => {
+    
+            items = []
+            let arr = []
+            school.map(
+                (data,index) => (
+                 
+                 
+               arr[index] =   {
+                    label: data.Name,
+                    value: data.SchoolCode,
+                }
+                )
+                // setIsLoading(false)
+            );
+            console.log("newArray", arr)
+            setItems(arr)
+            //  arr2 = arr.map(
+            //     async (data) => {
+            //         await items.push(data)
+            //     }
+    
+            // );
+            
+            //    setItems(arr)
+            setIsLoading(false)
+            console.log("newArray2", items)
+            // Driver(value)
+        }, 1000);
+    
+    }
+
+    const onUpdateSchool = () => {
+        firestore()
+        .collection('Driver')
+        .doc(doc)
+        .update({
+            SchoolName : labelValue,
+            SchoolCode : value
+        })
+        alert("School changed succesfully!")
+    }
+    
 
     return (<KeyboardAvoidingView style={{ flex: 1 }} behavior={(Platform.OS === 'ios') ? "padding" : null}>
         {/* <ScrollView> */}
@@ -31,7 +112,7 @@ const MyTripList = (props) => {
                     <Header
                         color={Colors.white}
                         iconColor={Colors.white}
-                        heading={'MY Request List'}
+                        heading={'Request School'}
                         name={'keyboard-arrow-left'}
                         size={Size(5)}>
                     </Header>
@@ -41,14 +122,55 @@ const MyTripList = (props) => {
             <View style={{ height: hp(90), width: wp(100), }}>
                 <View
                     style={{
-                        height: hp(15),
+                        height: hp(30),
                         width: wp(100),
                         backgroundColor: Colors.white,
                         alignItems: "center",
                         justifyContent: "center"
                     }}>
 
-                    <View style={{ height: hp(7), width: wp(80), alignItems: "center", }}>
+                        <View style={{ height: hp(5) }}>
+                      {/* <UserInput onChangeText={(val) => { setSchoolCode(val) }} textStyle={{ color: Colors.lightBlack, paddingVertical: hp(1) }} placeholder='School Code.' placeholderTextColor={Colors.lightBlack} iconColor={Colors.gray} image={true} imageName={Images.code} iconSize={20} borderBottomWidth={1.2} borderColor={Colors.lightGray} heading={'Email'}></UserInput> */}
+                      <DropDownPicker
+                        searchable={true}
+                        searchablePlaceholder="Search for the School"
+                        items={items}
+                        placeholder={'Select a School'}
+                        controller={instance => controller = instance}
+                        containerStyle={{ height: 40, width : wp(80) }}
+                        dropDownMaxHeight={hp(27)}
+                        itemStyle={{
+                          justifyContent: 'flex-start'
+                        }}
+                        // onChangeList={(items, callback) => {
+                        //     // new Promise((resolve, reject) => resolve(setItems(items)))
+                        //     //     .then(() => callback())
+                        //     //     .catch(() => { });
+                        // }}
+    
+                        defaultValue={value}
+                        onChangeItem={item => { setValue(item.value), setLabelValue(item.label) }}
+                      />
+                    </View>
+                <View style={{ height: hp(7), width: wp(80), alignItems: "center", marginTop : hp(2) , }}>
+                        <Button
+                            fontWeight={'bold'}
+                            onPress={() => onUpdateSchool()}
+                            borderWidth={0.5}
+                            backgroundColor={Colors.white}
+                            Icon={null} IconName={null}
+                            IconColor={Colors.facebookColor}
+                            width={wp('77%')} size={wp('5%')}
+                            IconLeftMargin={wp('3%')}
+                            borderRadius={wp('10%')}
+                            text={'Update School'}
+                            textColor={Colors.primary}
+                            borderColor={Colors.primary}
+                            fontSize={Size(1.8)} >
+
+                        </Button>
+                    </View>
+                    <View style={{ height: hp(7), width: wp(80), alignItems: "center", marginTop : hp(2) , }}>
                         <Button
                             fontWeight={'bold'}
                             onPress={() => { props.navigation.navigate('RequestSchool') }}
@@ -59,16 +181,16 @@ const MyTripList = (props) => {
                             width={wp('77%')} size={wp('5%')}
                             IconLeftMargin={wp('3%')}
                             borderRadius={wp('10%')}
-                            text={'Requested Schools'}
-                            textColor={"#F8AA14"}
-                            borderColor={"#F8AA14"}
+                            text={'Click to request school'}
+                            textColor={Colors.primary}
+                            borderColor={Colors.primary}
                             fontSize={Size(1.8)} >
 
                         </Button>
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.1)', paddingHorizontal: wp(6) }}>
+                {/* <View style={{ flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.1)', paddingHorizontal: wp(6) }}>
                     <View>
                         <Text style={{ fontSize: Size(2), paddingVertical: hp(.7) }}>Within a month</Text>
                     </View>
@@ -104,7 +226,7 @@ const MyTripList = (props) => {
                         })}
                     </ScrollView>
 
-                </View>
+                </View> */}
             </View>
         </View>
         {/* </ScrollView> */}

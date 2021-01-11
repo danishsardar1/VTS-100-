@@ -31,7 +31,7 @@ const MyTripList = (props) => {
                     <Header
                         color={Colors.white}
                         iconColor={Colors.white}
-                        heading={'MY Request List'}
+                        heading={'Request School'}
                         name={'keyboard-arrow-left'}
                         size={Size(5)}>
                     </Header>
@@ -47,7 +47,7 @@ const MyTripList = (props) => {
                         alignItems: "center",
                         justifyContent: "center"
                     }}>
-
+                        <View style = {{height: hp(15)}}/>
                     <View style={{ height: hp(7), width: wp(80), alignItems: "center", }}>
                         <Button
                             fontWeight={'bold'}
@@ -59,7 +59,7 @@ const MyTripList = (props) => {
                             width={wp('77%')} size={wp('5%')}
                             IconLeftMargin={wp('3%')}
                             borderRadius={wp('10%')}
-                            text={'Requested Schools'}
+                            text={'Click here to request school'}
                             textColor={"#F8AA14"}
                             borderColor={"#F8AA14"}
                             fontSize={Size(1.8)} >
@@ -68,13 +68,13 @@ const MyTripList = (props) => {
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.1)', paddingHorizontal: wp(6) }}>
+                {/* <View style={{ flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.1)', paddingHorizontal: wp(6) }}>
                     <View>
                         <Text style={{ fontSize: Size(2), paddingVertical: hp(.7) }}>Within a month</Text>
                     </View>
-                </View>
+                </View> */}
 
-                <View style={{ height: hp(70), width: wp(100), backgroundColor: Colors.white, marginHorizontal: wp(3.5) }}>
+                {/* <View style={{ height: hp(70), width: wp(100), backgroundColor: Colors.white, marginHorizontal: wp(3.5) }}>
 
                     <ScrollView style={{ marginBottom: hp(5) }}>
                         {tempArray.map(i => {
@@ -104,7 +104,7 @@ const MyTripList = (props) => {
                         })}
                     </ScrollView>
 
-                </View>
+                </View> */}
             </View>
         </View>
         {/* </ScrollView> */}

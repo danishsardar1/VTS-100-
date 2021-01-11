@@ -88,6 +88,7 @@ const Calls = () => {
         .onSnapshot( i => {
             console.log('pakistanlkdslakfjlaskjldfksalkjfdl;kajsl;', i)
             var docId = []
+            setDrivers([])
              i.forEach(j => {
                 drivers.push(j.data().uid)
 
@@ -119,7 +120,8 @@ const Calls = () => {
             .where('uid', '==', data)
             .where('SchoolCode','==',SchoolCodes)
             .onSnapshot( i => {
-                
+                Data = []
+                setUserInfo([])
                 let docId = ''
                 i.forEach(j => {
                     // Data = j.data();
@@ -175,7 +177,7 @@ const Calls = () => {
                                             <Text style={{ fontSize: Size(1.3), opacity: 0.5 }}>{item.MobNo}</Text>
                                         </View>
                                         <View style={{ flex: .1, marginHorizontal: wp(5), alignSelf: 'flex-end' }}>
-                                            <FEIcon name={item.status} size={16} color={item.status == 'arrow-down-left' ? ('red') : ('green')} />
+                                            {/* <FEIcon name={item.status} size={16} color={item.status == 'arrow-down-left' ? ('red') : ('green')} /> */}
                                         </View>
                                     </TouchableOpacity>
                                 }}

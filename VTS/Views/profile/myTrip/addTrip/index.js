@@ -65,10 +65,10 @@ const AddTrips = (props) => {
             i.forEach(j => {
                 school.push(j.data())
             })
-            console.log("SSSHelloo", school)
+            // console.log("SSSHelloo", school)
 
         })
-    console.log("school2222222222222222222222222222222222222222222", school)
+    // console.log("school2222222222222222222222222222222222222222222", school)
 
     setTimeout(() => {
 
@@ -139,7 +139,7 @@ const AddTrips = (props) => {
   }
 
   const AddChild = async () => {
-    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+    // var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
     // console.log("text"+ email +" " +password)
     if(avatarSource == ''){
       alert('insert image')
@@ -158,7 +158,7 @@ const AddTrips = (props) => {
     setIsLoading(true)
     const imageUrl = await uploadImage()
     console.log(imageUrl)
-    console.log("theryrtrth")
+    // console.log("theryrtrth")
     firestore()
       .collection('Child')
       .add({
@@ -167,14 +167,15 @@ const AddTrips = (props) => {
         imageUrl: imageUrl,
         SchoolCode: value,
         MobNo: MobNo,
+        status : 0,
+        date : '',
         uid: auth().currentUser.uid,
         id:id
       })
 
       .then(response => {
-        console.log(response);
+        // console.log(response);
         props.navigation.navigate('Profile')
-
         setIsLoading(false)
       })
       .catch(error => {
@@ -190,6 +191,7 @@ const AddTrips = (props) => {
 
       })
     }
+    
 
   }
   if(isLoading == true){
@@ -251,6 +253,8 @@ const AddTrips = (props) => {
                   <DropDownPicker
                     searchable={true}
                     searchablePlaceholder="Search for the School"
+                    placeholder = 'Select a school'
+                    dropDownMaxHeight={180}
                     items={items}
                     controller={instance => controller = instance}
                     containerStyle={{ height: 40 }}
